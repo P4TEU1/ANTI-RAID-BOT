@@ -259,9 +259,8 @@ async def setconfig(ctx, key: Option(str, "Config key"), value: Option(str, "New
 @commands.is_owner()
 async def showconfig(ctx):
     nice = "\n".join(f"{k}: {v}" for k, v in CONFIG.items())
-    await ctx.respond(f"Current config:\n```
-{nice}
-```")
+    msg = f"Current config:\n```\\n{nice}\\n```"
+    await ctx.respond(msg)
 
 # -------------------- START --------------------
 
@@ -285,3 +284,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
