@@ -26,6 +26,12 @@ import logging
 import discord
 from discord import Option
 from discord.ext import commands, tasks
+import sys
+import types
+
+# Patch pentru lipsa audioop in Python 3.13+
+if sys.version_info >= (3, 13):
+    sys.modules["audioop"] = types.ModuleType("audioop")
 
 # -------------------- CONFIG --------------------
 # Modificați după nevoie.
@@ -284,4 +290,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
